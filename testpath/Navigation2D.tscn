@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://path.png" type="Texture" id=1]
+[ext_resource path="res://agent.png" type="Texture" id=2]
+[ext_resource path="res://main.gd" type="Script" id=3]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = Vector2Array( 293, 476, 556, 463, 624, 469, 861, 519, 665, 253, 701, 320, 662, 328, 609, 300, 609, 174, 863, 104, 740, 253, 740, 145, 740, 400, 726, 342, 145, 104, 665, 145, 576, 368, 553, 336, 517, 174, 517, 300, 466, 391, 726, 441, 542, 429, 489, 404, 618, 380, 659, 376, 659, 419, 599, 439, 595, 403, 516, 387, 548, 390, 293, 188, 174, 188, 144, 520, 175, 476, 687, 447 )
+polygons = [ IntArray( 0, 1, 2, 3 ), IntArray( 4, 5, 6, 7, 8 ), IntArray( 9, 3, 10, 11 ), IntArray( 10, 3, 12, 13 ), IntArray( 14, 9, 11, 15 ), IntArray( 7, 6, 16, 17 ), IntArray( 10, 13, 5, 4 ), IntArray( 15, 4, 8 ), IntArray( 14, 15, 8, 18 ), IntArray( 19, 7, 17, 20 ), IntArray( 21, 12, 3 ), IntArray( 22, 1, 0, 23 ), IntArray( 24, 25, 26, 2, 27, 28 ), IntArray( 29, 30, 22, 23 ), IntArray( 20, 23, 0 ), IntArray( 19, 20, 0, 31, 18 ), IntArray( 14, 18, 31, 32 ), IntArray( 33, 14, 32, 34 ), IntArray( 3, 33, 34, 0 ), IntArray( 21, 3, 2, 35 ), IntArray( 26, 35, 2 ) ]
+outlines = [ Vector2Array( 145, 104, 144, 520, 861, 519, 863, 104 ), Vector2Array( 174, 188, 175, 476, 293, 476, 293, 188 ), Vector2Array( 517, 174, 517, 300, 609, 300, 609, 174 ), Vector2Array( 665, 145, 665, 253, 740, 253, 740, 145 ), Vector2Array( 466, 391, 553, 336, 576, 368, 662, 328, 701, 320, 726, 342, 740, 400, 726, 441, 687, 447, 659, 419, 659, 376, 618, 380, 595, 403, 599, 439, 624, 469, 556, 463, 542, 429, 548, 390, 516, 387, 489, 404 ) ]
+
+[node name="main" type="Node2D"]
+
+[node name="draw" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1029.0
+margin/bottom = 645.0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 504, 313 )
+texture = ExtResource( 1 )
+
+[node name="agent" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 363, 165 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 100, 100 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+script/script = ExtResource( 3 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+
